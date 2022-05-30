@@ -15,9 +15,9 @@ def landing(request):
     for post in posts:
         if post.recently_uploaded():
             post_list.append(post)
-            return render(request,'general_templates/landing.html',{"post_list":post_list})
+            return render(request,'album/landing.html',{"post_list":post_list})
         else:
-            return render(request, 'general_templates/index.html',{"posts":posts})
+            return render(request, 'album/index.html',{"posts":posts})
 
 
 def index(request):
@@ -26,7 +26,7 @@ def index(request):
     context = {
         "posts":posts
     }
-    return render(request, 'general_templates/index.html',context)
+    return render(request, 'album/index.html',context)
 
 
 def search_results(request):
@@ -43,21 +43,14 @@ def search_results(request):
             "posts":searched_imageposts
         }
 
-        return render(request, 'general_templates/search.html', context)
+        return render(request, 'album/search.html', context)
 
 
     else:
         message = "You haven't searched for any term"
 
-        return render(request,'general_templates/search.html',{"message":message})
+        return render(request,'album/search.html',{"message":message})
 
-def aboretum_images(request):
-    images=ImagePost.objects.filter(image_location__name="Aboretum")
-
-    context = {
-        "posts":images
-    }
-    return render(request, 'general_templates/display.html', context)
 
 def nature_images(request):
     images=ImagePost.objects.filter(image_location__name="Nature")
@@ -65,7 +58,7 @@ def nature_images(request):
     context = {
         "posts":images
     }
-    return render(request, 'general_templates/display.html', context)
+    return render(request, 'album/display.html', context)
 
 
 
@@ -75,7 +68,7 @@ def park_images(request):
     context = {
         "posts":images
     }
-    return render(request, 'general_templates/display.html', context)
+    return render(request, 'album/display.html', context)
 
 def beach_images(request):
     images=ImagePost.objects.filter(image_location__name="beach")
@@ -83,7 +76,7 @@ def beach_images(request):
     context = {
         "posts":images
     }
-    return render(request, 'general_templates/display.html', context)
+    return render(request, 'album/display.html', context)
 
 def cgi_images(request):
     images=ImagePost.objects.filter(image_location__name="CGI")
@@ -91,7 +84,7 @@ def cgi_images(request):
     context = {
         "posts":images
     }
-    return render(request, 'general_templates/display.html', context)
+    return render(request, 'album/display.html', context)
 
 
 def unknown_images(request):
@@ -100,4 +93,4 @@ def unknown_images(request):
     context = {
         "posts":images
     }
-    return render(request, 'general_templates/display.html', context)
+    return render(request, 'album/display.html', context)
