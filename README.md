@@ -2,7 +2,7 @@
 GALLERY
 
 ## Author Name
-Fuad Manye
+Fuad Manyi
 ## Description
 A personal gallery application that you display your photos for others to see.
 
