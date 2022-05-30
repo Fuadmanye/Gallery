@@ -11,7 +11,7 @@ A personal gallery application that you display your photos for others to see.
 * Clone Project to your machine
 * Activate a virtual environment on terminal: source virtual/bin/activate
 * Install all the requirements found in requirements.txt file.
-* On your terminal run python3.6 manage.py runserver
+* On your terminal run python3 manage.py runserver
 * Access the live site using the local host provided
 
 
