@@ -10,14 +10,14 @@ from .models import ImagePost, ImageCategory, ImageLocation
 # Create your views here.
 
 def landing(request):
-    posts = ImagePost.objects.all()
-    post_list = []
-    for post in posts:
-        if post.recently_uploaded():
-            post_list.append(post)
-            return render(request,'album/landing.html',{"post_list":post_list})
-        else:
-            return render(request, 'album/index.html',{"posts":posts})
+    # posts = ImagePost.objects.all()
+    # post_list = []
+    # for post in posts:
+    #     if post.recently_uploaded():
+    #         post_list.append(post)
+    #         return render(request,'album/landing.html',{"post_list":post_list})
+    #     else:
+    return render(request, 'album/index.html')
 
 
 def index(request):
@@ -51,6 +51,13 @@ def search_results(request):
 
         return render(request,'album/search.html',{"message":message})
 
+def aboretum_images(request):
+    images=ImagePost.objects.filter(image_location__name="Aboretum")
+
+    context = {
+        "posts":images
+    }
+    return render(request, 'album/display.html', context)
 
 def nature_images(request):
     images=ImagePost.objects.filter(image_location__name="Nature")
