@@ -12,7 +12,11 @@
             <div class="d-inline-flex  ">
                 <h2 class="text-center text-white">{{post.image_name}}</h2>
                 <img src="{{post.my_image.url}}" class="img-responsive imgs" id='imag'
-                    alt=" Name: {{post.image_name}} <br>Category: {{post.image_category}}<br>Locaton:{{post.image_location}}  <br> About:{{post.image_description}}">
+                    alt="">
+                    <p> Name: {{post.image_name}} </p>
+                    <p> Category: {{post.image_category}}</p>
+                    <p> Locaton:{{post.image_location}}</p>
+                    <p> About:{{post.image_description}}</p>
 
                 <p class="text-white image-descrips" id="image-descrip">{{post.image_description |slice:":50"}}...</p>
 
