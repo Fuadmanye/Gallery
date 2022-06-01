@@ -17,7 +17,7 @@ def landing(request):
             post_list.append(post)
             return render(request,'album/landing.html',{"post_list":post_list})
         else:
-            return render(request, 'album/index.html')
+         return render(request, 'album/index.html')
 
 
 def index(request):
@@ -51,16 +51,9 @@ def search_results(request):
 
         return render(request,'album/search.html',{"message":message})
 
-def aboretum_images(request):
-    images=ImagePost.objects.filter(image_location__name="Aboretum")
-
-    context = {
-        "posts":images
-    }
-    return render(request, 'album/display.html', context)
 
 def nature_images(request):
-    images=ImagePost.objects.filter(image_location__name="Nature")
+    images=ImagePost.objects.filter(image_category__name="nature")
 
     context = {
         "posts":images
@@ -70,7 +63,7 @@ def nature_images(request):
 
 
 def park_images(request):
-    images=ImagePost.objects.filter(image_location__name="National Park")
+    images=ImagePost.objects.filter(image_category__name="park")
 
     context = {
         "posts":images
@@ -78,7 +71,7 @@ def park_images(request):
     return render(request, 'album/display.html', context)
 
 def beach_images(request):
-    images=ImagePost.objects.filter(image_location__name="beach")
+    images=ImagePost.objects.filter(image_category__name="beach")
 
     context = {
         "posts":images
@@ -86,7 +79,7 @@ def beach_images(request):
     return render(request, 'album/display.html', context)
 
 def cgi_images(request):
-    images=ImagePost.objects.filter(image_location__name="CGI")
+    images=ImagePost.objects.filter(image_category__name="cgi")
 
     context = {
         "posts":images
@@ -95,7 +88,7 @@ def cgi_images(request):
 
 
 def unknown_images(request):
-    images=ImagePost.objects.filter(image_location__name="Unknown")
+    images=ImagePost.objects.filter(image_category__name="Unknown")
 
     context = {
         "posts":images
